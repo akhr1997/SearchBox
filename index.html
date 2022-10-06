@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        
+        .h{
+            color: red;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            text-align:center;
+            align-items:center;
+            height: 100vh;
+        }
+
+        .search{
+            padding: 0 50px 0 50px;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text" placeholder="Search here..." class="search" id="search">
+        <ul>
+            <li class="list-items">Apple</li>
+            <li class="list-items">Amazon</li>
+            <li class="list-items">Facebook</li>
+            <li class="list-items">Netflix</li>
+            <li class="list-items">Google</li>
+            <li class="list-items">Microsoft</li>
+        </ul>
+    </div>
+
+    <script>
+
+        const box = document.querySelector("#search");
+
+        box.addEventListener('input', searchOutput);
+
+        function searchOutput(){
+
+            const input = document.querySelector("#search")
+            const inputValue = input.value
+            const list = document.querySelectorAll(".list-items")
+
+            // for(let i=0; i<list.length; i++){
+            //     let text = i.textContent;
+
+            //     if(text.includes(inputValue)){
+            //         i.style.display = ''
+            //     }else{
+            //         i.style.display = 'none'
+            //     }
+            // }
+
+            list.forEach((i) => {
+
+                let text = i.textContent;
+
+                if(text.includes(inputValue)){
+                    i.style.display = ''
+                }else{
+                    i.style.display = 'none'
+                }
+            });
+
+
+        }
+
+
+    </script>
+</body>
+</html>
